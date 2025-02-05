@@ -14,7 +14,7 @@ app.use(cors({ origin: "https://happenings-now.vercel.app" }));
 app.use(express.json());
 
 // SerpApi route
-app.get("/api/serpapi", async (req, res) => {
+app.get("/api/events", async (req, res) => {
   const apiKey = process.env.API_TOKEN;
   const location = "Austin";
 
