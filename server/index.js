@@ -1,9 +1,13 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
-app.use("/", (req, res) => {
-  res.send("Server is Running...");
-});
+app.use(cors());
+app.use(express.json());
 
-const port = 5000;
-app.listen(port, console.log("Server is started at PORT: ", port));
+const eventsRouter = require("./routes/events");
+app.use("/api/events", eventsRouter); // Use the events route
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

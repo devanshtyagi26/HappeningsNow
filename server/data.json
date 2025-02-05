@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Tech Conference 2025",
+      "date": "2025-03-15",
+      "location": "New York",
+      "description": "A conference exploring the latest in AI and technology."
+    },
+    {
+      "id": 2,
+      "name": "Startup Pitch Night",
+      "date": "2025-04-10",
+      "location": "San Francisco",
+      "description": "An evening where startups pitch to investors."
+    },
+    {
+      "id": 3,
+      "name": "Web Dev Summit",
+      "date": "2025-05-20",
+      "location": "London",
+      "description": "A summit focused on the latest trends in web development."
+    }
+  ]
+}
