@@ -4,18 +4,6 @@
   "version": "0.0.2",
   "main": "server.js",
   "type": "module",
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/.*",
-      "dest": "server.js"
-    }
-  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
