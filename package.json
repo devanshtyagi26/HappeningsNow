@@ -1,18 +1,33 @@
 {
   "name": "happenings-now",
   "private": true,
-  "version": "0.0.0",
-  "main": "serpapi.js",
+  "version": "0.0.2",
+  "main": "server.js",
   "type": "module",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "server.js"
+    }
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node serpapi.js"
+    "start": "node server.js"
   },
   "dependencies": {
+    "@vercel/node": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

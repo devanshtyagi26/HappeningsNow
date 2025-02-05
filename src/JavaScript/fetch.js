@@ -6,7 +6,7 @@ const fetchEvents = async (query) => {
 
   try {
     const response = await fetch(
-      `https://https://happenings-now.vercel.app/API/serpapi?q=${encodeURIComponent(
+      `https://https://happenings-now.vercel.app/API/server?q=${encodeURIComponent(
         query
       )}`
     );
