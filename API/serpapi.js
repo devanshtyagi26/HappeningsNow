@@ -1,25 +1,31 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
+import { config } from "dotenv";
+config(); // Loads the variables from the .env file
 
 export default async function handler(req, res) {
-  const apiKey = 'af1f4cefd545a5ac7bcef509d663c27842c129c6fd0867735646107e6e3beac1';
-  const location = 'Austin';  // You can modify this based on your needs
-  const query = req.query.q || 'Events in Austin';  // Default to 'Events in Austin'
+  const { q } = req.query; // Retrieve the query from the request URL
+
+  if (!q) {
+    return res.status(400).json({ error: "Query parameter 'q' is required" });
+  }
+
+  const apiKey = process.env.SERPAPI_API_KEY;
+  const location = "Austin"; // Modify this if you need location customization
 
   try {
     const response = await fetch(
-      `https://serpapi.com/search.json?engine=google_events&q=${encodeURIComponent(query)}&hl=en&gl=us&api_key=${apiKey}`
+      `https://serpapi.com/search.json?engine=google_events&q=${encodeURIComponent(q)}&hl=en&gl=us&api_key=${apiKey}`
     );
-    
-    // Log the raw response body to debug
-    const rawData = await response.text();  // Get raw response as text
-    console.log("Raw Response Data:", rawData); // Log raw response
 
-    // Attempt to parse the JSON
-    const data = JSON.parse(rawData);  // Manually parse JSON
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
+    }
 
-    res.status(200).json(data);
+    const data = await response.json(); // Parse JSON directly
+
+    res.status(200).json(data); // Send the parsed data as response
   } catch (error) {
-    console.error("Error fetching from SerpApi:", error); // Log error details
-    res.status(500).json({ error: 'Failed to fetch data from SerpApi' });
+    console.error("Error fetching from SerpApi:", error);
+    res.status(500).json({ error: "Failed to fetch data from SerpApi" });
   }
 }

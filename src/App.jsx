@@ -1,3 +1,5 @@
+import "./JavaScript/fetch.js";
+
 function App() {
   return <></>;
 }
