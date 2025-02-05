@@ -13,17 +13,7 @@ const Events = () => {
   return (
     <div>
       <h1>Event List</h1>
-      <ul>
-        {events.map((event) => (
-          <li key={event.id}>
-            <h3>{event.name}</h3>
-            <p>
-              {event.date} - {event.location}
-            </p>
-            <p>{event.description}</p>
-          </li>
-        ))}
-      </ul>
+      {console.log(events)}
     </div>
   );
 };

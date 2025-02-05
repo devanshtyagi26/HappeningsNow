@@ -1,15 +1,34 @@
-const express = require('express');
-const cors = require('cors');
+require("dotenv").config(); // Load environment variables
+
+import express from "express";
+import cors from "cors"; // Import the cors package
 
 const app = express();
 
-// Enable CORS and allow requests from your frontend
-app.use(cors({ origin: 'https://happenings-now.vercel.app' }));
+// Basic route for root
+app.get("/", (req, res) => {
+  res.send("Server Is Running...");
+});
 
+app.use(cors({ origin: "https://happenings-now.vercel.app" }));
 app.use(express.json());
 
-const eventsRouter = require('./routes/events');
-app.use('/api/events', eventsRouter);
+// SerpApi route
+app.get("/api/serpapi", async (req, res) => {
+  const apiKey = process.env.API_TOKEN;
+  const location = "Austin";
+
+  try {
+    const response = await fetch(
+      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${location}&hl=en&gl=us&api_key=${apiKey}`
+    );
+    const data = await response.json();
+    console.log("data");
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch data from SerpApi" });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
