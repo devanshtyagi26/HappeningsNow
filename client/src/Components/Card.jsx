@@ -5,7 +5,7 @@ import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { Rating } from "../assets/Rating";
 
-function Card() {
+function Card({ title }) {
   return (
     <>
       <div className="frame">
@@ -15,7 +15,7 @@ function Card() {
           </div>
           <div className="content">
             <div className="title">
-              <p className="event">Carin Leon</p>
+              <p className="event">{title}</p>
               <div className="rating">
                 {" "}
                 <Rating />
