@@ -4,8 +4,9 @@ import { DateTime } from "../assets/DateTime";
 import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { Rating } from "../assets/Rating";
+import { StarRating } from "../assets/Star";
 
-function Card({ title, dateTime, address, description }) {
+function Card({ title, dateTime, address, description, rating }) {
   const cardDate = (data) => {
     let split = data.split(",");
     return split[1] + " | " + split[2];
@@ -22,7 +23,7 @@ function Card({ title, dateTime, address, description }) {
               <p className="event">{title}</p>
               <div className="rating">
                 {" "}
-                <Rating />
+                <StarRating rating={rating} />
               </div>
             </div>
             <div className="location">
@@ -35,9 +36,7 @@ function Card({ title, dateTime, address, description }) {
                 <p>{address[1]}</p>
               </div>
             </div>
-            <div className="description">
-              {description}
-            </div>
+            <div className="description">{description}</div>
             <div className="buttons">
               <button className="button">Ticket</button>
               <button className="button">Location</button>

@@ -1,7 +1,7 @@
 export const Location = () => {
   const svgStyle = {
-    height: "10px",
-    width: "10px",
+    height: "50%",
+    width: "20%",
   };
   return (
     <svg

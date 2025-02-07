@@ -47,6 +47,7 @@ const EventsTest = () => {
                 dateTime={event.date.when}
                 address={event.address}
                 description={event.description}
+                rating={event.venue.rating}
               />
             </li>
           ))}
