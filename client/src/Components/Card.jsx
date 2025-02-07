@@ -48,14 +48,14 @@ function Card({
             <div className="buttons">
               <button
                 className="button"
-                onClick={() => (window.location.href = ticketLink)}
+                onClick={() => window.open(ticketLink, "_blank")}
               >
                 Ticket
               </button>
 
               <button
                 className="button"
-                onClick={() => (window.location.href = eventLocationLink)}
+                onClick={() => window.open(eventLocationLink, "_blank")}
               >
                 Location
               </button>
