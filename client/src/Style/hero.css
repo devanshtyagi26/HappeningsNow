@@ -9,3 +9,73 @@
     ),
     url(../assets/background.jpg) lightgray 0px -70vh / 100% 177.778% no-repeat;
 }
+
+.locationFilter {
+  display: flex;
+  flex-direction: column;
+  width: 1114px;
+  height: 299px;
+  flex-shrink: 0;
+  position: absolute;
+  padding: 0.5rem;
+  gap: 2rem;
+  background: linear-gradient(90deg, #1e1b13 0%, #171f23 100%);
+  left: 25%;
+  bottom: 0;
+}
+
+.locationFilter .text {
+  display: flex;
+  flex-direction: column;
+}
+.locationFilter .text p {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  line-height: 1.2rem;
+}
+.locationFilter .text .welcome {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.locationFilter .blob1,
+.locationFilter .blob2,
+.locationFilter .blob3 {
+  position: absolute;
+}
+
+.locationFilter .blob1 {
+  bottom: 0;
+  left: 17%;
+}
+
+.locationFilter .blob2 {
+  top: 0;
+  right: 14%;
+}
+.locationFilter .blob3 {
+  top: 63%;
+  right: 41%;
+}
+
+.locationFilter .select {
+  border: 1px solid #606060;
+  background: #262626;
+  backdrop-filter: blur(2px);
+  width: 1050px;
+  height: 102px;
+  flex-shrink: 0;
+}
+
+.locationFilter .select p {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
