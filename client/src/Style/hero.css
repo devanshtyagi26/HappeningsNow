@@ -1,0 +1,11 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url(../assets/background.jpg) lightgray 0px -70vh / 100% 177.778% no-repeat;
+}
