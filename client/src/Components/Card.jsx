@@ -5,7 +5,16 @@ import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { StarRating } from "../assets/Star";
 
-function Card({ title, dateTime, address, description, rating, imgUrl }) {
+function Card({
+  title,
+  dateTime,
+  address,
+  description,
+  rating,
+  imgUrl,
+  ticketLink,
+  eventLocationLink,
+}) {
   const cardDate = (data) => {
     let split = data.split(",");
     return split[1] + " | " + split[2];
@@ -37,8 +46,18 @@ function Card({ title, dateTime, address, description, rating, imgUrl }) {
             </div>
             <div className="description">{description}</div>
             <div className="buttons">
-              <button className="button">Ticket</button>
-              <button className="button">Location</button>
+              <button
+                className="button"
+                onclick={`"location.href='${ticketLink}';"`}
+              >
+                Ticket
+              </button>
+              <button
+                className="button"
+                onclick={`"location.href='${eventLocationLink}';"`}
+              >
+                Location
+              </button>
             </div>
           </div>
         </div>
