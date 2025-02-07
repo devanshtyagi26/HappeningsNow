@@ -1,6 +1,6 @@
 import React from "react";
 import "../Style/card.css";
-import { DateTime } from "../assets/dateTime";
+import { DateTime } from "../assets/DateTime";
 import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { Rating } from "../assets/Rating";
