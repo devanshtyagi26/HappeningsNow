@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CardImage } from "../assets/CardImage";
+import Card from "../Components/Card";
 
 const EventsTest = () => {
   const [events, setEvents] = useState([]);
@@ -42,7 +42,7 @@ const EventsTest = () => {
         <ul>
           {events.map((event, index) => (
             <li key={index}>
-              <CardImage title={event.title} />
+              <Card title={event.title} />
             </li>
           ))}
         </ul>
