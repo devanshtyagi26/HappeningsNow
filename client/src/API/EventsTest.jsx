@@ -42,7 +42,12 @@ const EventsTest = () => {
         <ul>
           {events.map((event, index) => (
             <li key={index}>
-              <Card title={event.title} />
+              <Card
+                title={event.title}
+                dateTime={event.date.when}
+                address={event.address}
+                description={event.description}
+              />
             </li>
           ))}
         </ul>

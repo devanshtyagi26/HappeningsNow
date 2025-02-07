@@ -5,7 +5,11 @@ import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { Rating } from "../assets/Rating";
 
-function Card({ title }) {
+function Card({ title, dateTime, address, description }) {
+  const cardDate = (data) => {
+    let split = data.split(",");
+    return split[1] + " | " + split[2];
+  };
   return (
     <>
       <div className="frame">
@@ -24,18 +28,15 @@ function Card({ title }) {
             <div className="location">
               <div className="dateTime">
                 <DateTime />
-                <p>3 April | 6 PM CTD</p>
+                <p>{cardDate(dateTime)}</p>
               </div>
               <div className="venue">
                 <Location />
-                <p>Del Valle, TX</p>
+                <p>{address[1]}</p>
               </div>
             </div>
             <div className="description">
-              🎶 Get Ready for Carin Leon Live at Circuit of the Americas on
-              Saturday, April 5, 2025! 🎶 This is not just a concert—it’s a
-              moment you’ll talk about for years. Carin Leon is set to light
-              up...
+              {description}
             </div>
             <div className="buttons">
               <button className="button">Ticket</button>
