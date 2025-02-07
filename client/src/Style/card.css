@@ -67,8 +67,9 @@
 .frame .canvas .content .title .rating {
   display: flex;
   align-items: center;
-  gap: 0.1rem;
   margin-left: 0.3rem;
+  margin-top: 0.3rem;
+  transform: scale(1);
 }
 .frame .canvas .content .location {
   grid-area: location;

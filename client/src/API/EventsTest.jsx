@@ -48,6 +48,7 @@ const EventsTest = () => {
                 address={event.address}
                 description={event.description}
                 rating={event.venue.rating}
+                imgUrl={event.thumbnail}
               />
             </li>
           ))}

@@ -5,7 +5,7 @@ import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { StarRating } from "../assets/Star";
 
-function Card({ title, dateTime, address, description, rating }) {
+function Card({ title, dateTime, address, description, rating, imgUrl }) {
   const cardDate = (data) => {
     let split = data.split(",");
     return split[1] + " | " + split[2];
@@ -15,7 +15,7 @@ function Card({ title, dateTime, address, description, rating }) {
       <div className="frame">
         <div className="canvas">
           <div className="svgImage">
-            <CardImage />
+            <CardImage image={imgUrl} />
           </div>
           <div className="content">
             <div className="title">

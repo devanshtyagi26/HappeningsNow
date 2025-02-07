@@ -1,5 +1,6 @@
 import Events from "./API/Events";
 import EventsTest from "./API/EventsTest";
+import { CardImage } from "./assets/CardImage";
 import { StarRating } from "./assets/Star";
 import Card from "./Components/Card";
 
@@ -9,7 +10,7 @@ function App() {
       {/* <Events /> */}
       {/* <Card title="Title" /> */}
       <EventsTest />
-      {/* <StarRating rating={2.6} /> */}
+      
     </>
   );
 }
