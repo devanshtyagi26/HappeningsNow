@@ -1,15 +1,36 @@
 .hero {
   width: 100vw;
-  height: 100vh;
-
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.6) 100%
-    ),
-    url(../assets/background.jpg) lightgray 0px -70vh / 100% 177.778% no-repeat;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.hero .title {
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 82px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 79px; /* 96.341% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero .title .main .color {
+  color: #31d7a9;
+}
+.hero .title .sub {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .locationFilter {
   display: flex;
   flex-direction: column;
@@ -20,8 +41,8 @@
   padding: 0.5rem;
   gap: 2rem;
   background: linear-gradient(90deg, #1e1b13 0%, #171f23 100%);
-  left: 25%;
-  bottom: 0;
+  left: 12%;
+  bottom: -25%;
 }
 
 .locationFilter .text {
@@ -78,4 +99,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.secondPage {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #050709;
 }

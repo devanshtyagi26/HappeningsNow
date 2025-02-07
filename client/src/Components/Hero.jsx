@@ -5,10 +5,20 @@ import LocationFilter from "./LocationFilter";
 function Hero() {
   return (
     <>
-      <div className="hero">
         <Navbar />
-        <LocationFilter />
-      </div>
+      <div className="hero">
+      
+          <div className="title">
+            <p className="main">
+              SEARCH FOR EVENTS <br /> ALL OVER THE{" "}
+              <span className="color">WORLD</span>
+            </p>
+            <p className="sub">Find events across the globe, effortlessly!</p>
+          </div>
+          <LocationFilter />
+        </div>
+     
+      <div className="secondPage"></div>
     </>
   );
 }
