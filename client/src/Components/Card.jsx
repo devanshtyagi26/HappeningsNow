@@ -3,7 +3,6 @@ import "../Style/card.css";
 import { DateTime } from "../assets/DateTime";
 import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
-import { Rating } from "../assets/Rating";
 import { StarRating } from "../assets/Star";
 
 function Card({ title, dateTime, address, description, rating }) {
