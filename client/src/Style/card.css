@@ -62,7 +62,8 @@
   font-size: 100%;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 16px;
+  margin-bottom: 0.3rem;
 }
 .frame .canvas .content .title .rating {
   display: flex;
