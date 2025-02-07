@@ -1,7 +1,7 @@
 const Star = ({ clip, fill }) => {
   const StarStyle = {
-    height: "0.9rem",
-    width: "10%",
+    height: "1.5rem",
+    width: "13%",
     clipPath: `polygon(0% 0%, ${clip} 0%, ${clip} 100%, 0% 100%)`,
   };
   return (
@@ -29,16 +29,16 @@ export const StarRating = ({ rating }) => {
     <>
       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
         {[...Array(totalStars)].map((_, index) => (
-          <Star clip="100%" fill="#E0E0E0" />
+          <Star clip="100%" fill="#5E5E5E" />
         ))}
       </div>
       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
         {[...Array(fullStars)].map((_, index) => (
-          <Star clip="100%" fill="#FFFF00" />
+          <Star clip="100%" fill="#ED8A19" />
         ))}
-        {portion > 0 && <Star clip={portion + "%"} fill="#FFFF00" />}
+        {portion > 0 && <Star clip={portion + "%"} fill="#ED8A19" />}
         {[...Array(remaining)].map((_, index) => (
-          <Star clip="100%" fill="#E0E0E0" />
+          <Star clip="100%" fill="#5E5E5E" />
         ))}
       </div>
     </>

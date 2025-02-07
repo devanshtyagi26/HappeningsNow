@@ -9,6 +9,7 @@ function App() {
       {/* <Events /> */}
       {/* <Card title="Title" /> */}
       <EventsTest />
+      {/* <StarRating rating={2.6} /> */}
     </>
   );
 }
