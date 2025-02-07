@@ -1,6 +1,7 @@
 .frame {
   width: 17.38rem;
-  height: 25.03rem;
+  height: fit-content;
+  padding: 1rem 0;
   flex-shrink: 0;
   border-radius: 14.5px;
   background: #fff;
@@ -13,7 +14,8 @@
 
 .frame .canvas {
   width: 90%;
-  height: 92%;
+  height: fit-content;
+  padding: 0 0 0.5rem 0;
   flex-shrink: 0;
   border-radius: 12.3px;
   background: #d9d9d9;

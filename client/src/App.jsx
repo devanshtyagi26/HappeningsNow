@@ -5,7 +5,7 @@ import Card from "./Components/Card";
 function App() {
   return (
     <>
-      {/* <Events /> */}
+      <Events />
       {/* <Card title="Title" /> */}
       <EventsTest />
     </>
