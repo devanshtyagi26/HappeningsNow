@@ -1,0 +1,69 @@
+.frame {
+  width: 16.38rem;
+  height: 22.03rem;
+  flex-shrink: 0;
+  border-radius: 14.5px;
+  background: #fff;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.frame .canvas {
+  width: 90%;
+  height: 92%;
+  flex-shrink: 0;
+  border-radius: 12.3px;
+  background: #d9d9d9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.frame .canvas .svgImage {
+  position: relative;
+  display: flex;
+}
+.frame .canvas .svgImage svg {
+  width: 100%;
+  height: fit-content;
+  z-index: 3;
+}
+.frame .canvas .svgImage .blueStrip {
+  position: absolute;
+  z-index: 1;
+}
+
+.frame .canvas .content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title location location"
+    "description description description description"
+    "buttons buttons buttons buttons";
+}
+
+.frame .canvas .content .title {
+  grid-area: title;
+}
+.frame .canvas .content .title .event {
+  color: #000;
+  font-family: Poppins;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.frame .canvas .content .location {
+  grid-area: location;
+}
+.frame .canvas .content .description {
+  grid-area: description;
+}
+.frame .canvas .content .buttons {
+  grid-area: buttons;
+}

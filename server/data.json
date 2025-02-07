@@ -1,25 +1,38 @@
 {
-  "events": [
+  "title": "Carin Leon",
+  "date": {
+    "start_date": "Apr 5",
+    "when": "Sat, Apr 5, 6 – 10 PM CDT"
+  },
+  "address": [
+    "Circuit of the Americas, 9201 Circuit of the Americas Blvd",
+    "Del Valle, TX"
+  ],
+  "link": "https://allevents.in/elroy/carin-leon-in-austin/3300027578019640",
+  "event_location_map": {
+    "image": "https://www.google.com/maps/vt/data=Z2NlzJzwhF9QQZHsV5v6dyk_yij7coewaX57k306MdWfrA0lodStSP9G-Y2sXbhykPaZcem0QfUOxdgA9J3wEk8p2V02r4oGVm3nlZjcW8I_R2LEVic",
+    "link": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x8644b03ad152eaf9:0x8ae827dd1ff5e0ed?sa=X&ved=2ahUKEwj9__SN8ayLAxUyEVkFHZtvJ1kQ9eIBegQIGRAA&hl=en&gl=us",
+    "serpapi_link": "https://serpapi.com/search.json?data=%214m2%213m1%211s0x8644b03ad152eaf9%3A0x8ae827dd1ff5e0ed&engine=google_maps&gl=us&google_domain=google.com&hl=en&q=Events+in+Austin&type=place"
+  },
+  "description": "🎶 Get Ready for Carin Leon Live at Circuit of the Americas on Saturday, April 5, 2025! 🎶 This is not just a concert—it’s a moment you’ll talk about for years. Carin Leon is set to light up...",
+  "ticket_info": [
     {
-      "id": 1,
-      "name": "Tech Conference 2025",
-      "date": "2025-03-15",
-      "location": "New York",
-      "description": "A conference exploring the latest in AI and technology."
+      "source": "Spotify.com",
+      "link": "https://open.spotify.com/concert/54pVBT7Ahsa89Pc6HvYaSK",
+      "link_type": "tickets"
     },
     {
-      "id": 2,
-      "name": "Startup Pitch Night",
-      "date": "2025-04-10",
-      "location": "San Francisco",
-      "description": "An evening where startups pitch to investors."
-    },
-    {
-      "id": 3,
-      "name": "Web Dev Summit",
-      "date": "2025-05-20",
-      "location": "London",
-      "description": "A summit focused on the latest trends in web development."
+      "source": "AllEvents",
+      "link": "https://allevents.in/elroy/carin-leon-in-austin/3300027578019640",
+      "link_type": "more info"
     }
-  ]
+  ],
+  "venue": {
+    "name": "Circuit of the Americas",
+    "rating": 4.6,
+    "reviews": 15934,
+    "link": "https://www.google.com/search?sca_esv=df054736d75a2025&hl=en&gl=us&q=Circuit+of+the+Americas&ludocid=10009294002508390637&ibp=gwp%3B0,7"
+  },
+  "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNzS_-EjxUYmrzhmkQ3DBiqpayscTb9oiehISvW4Rbj6wYtnHxrN_cic8&s",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu_aMIq4UlMtQncN-OMrQ5OrEqUbBTcQjEFc_dSKLTV-wCToW-w9xDcAlmWXlG&s"
 }
