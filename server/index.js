@@ -5,14 +5,20 @@ import cors from "cors"; // Import the cors package
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", process.env.API_URL);
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+// ✅ Use cors() properly
+app.use(
+  cors({
+    origin: process.env.API_URL || "https://happenings-now.vercel.app", // Allow frontend URL
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
+    allowedHeaders: "Content-Type, Authorization",
+  })
+);
 
-app.use(express.json());
+app.use(express.json()); // Middleware for JSON body parsing
+
+// ✅ Handle OPTIONS preflight requests
+app.options("*", cors());
+
 // Basic route for root
 app.get("/", (req, res) => {
   res.send("Server Is Running...");
