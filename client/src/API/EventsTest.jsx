@@ -4,44 +4,10 @@ import { useEvents } from "../Components/EventsContext";
 
 const EventsTest = () => {
   const { eventsData } = useEvents(); // Access the stored data
-  let data;
+  let events;
   if (eventsData) {
-    data = JSON.stringify(eventsData, null, 2);
+    events = JSON.stringify(eventsData, null, 2);
   }
-  return (
-    <div>
-      <h2>Events Data:</h2>
-      {eventsData ? <pre> {data}</pre> : <p>No events data available</p>}
-    </div>
-  );
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch(import.meta.env.VITE_API_URL);
-        if (!response.ok) {
-          throw new Error("Failed to fetch events");
-        }
-        const data = await response.json();
-        setEvents(data.events_results); // Assuming data structure is the same
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  if (loading) {
-    return <p>Loading events...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   return (
     <div>
       <h1>Upcoming Events</h1>
