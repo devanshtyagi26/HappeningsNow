@@ -16,7 +16,7 @@ function LocationFilter() {
 
     try {
       const response = await axios.post(
-        `${apiUrl}/api/events?city=${selectedCity}`, // Ensure a trailing slash if required
+        `${apiUrl}/api/events?city=${selectedCity.name}`, // Ensure a trailing slash if required
         { city: selectedCity.name },
         { headers: { "Content-Type": "application/json" } }
       );
