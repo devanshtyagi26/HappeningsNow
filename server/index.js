@@ -30,5 +30,10 @@ app.get("/api/events", async (req, res) => {
   }
 });
 
+app.post("/", async (req, res) => {
+  const { msg } = req.body;
+  console.log(msg);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
