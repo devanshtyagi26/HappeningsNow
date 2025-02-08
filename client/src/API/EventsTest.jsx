@@ -10,7 +10,7 @@ const EventsTest = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(
-          process.env.REACT_APP_API_URL_
+          import.meta.env.VITE_API_URL
         );
         if (!response.ok) {
           throw new Error("Failed to fetch events");

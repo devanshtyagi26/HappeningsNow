@@ -8,8 +8,8 @@ import Hero from "./Components/Hero";
 function App() {
   return (
     <>
-      {/* <EventsTest /> */}
       <Hero />
+      <EventsTest />
     </>
   );
 }
