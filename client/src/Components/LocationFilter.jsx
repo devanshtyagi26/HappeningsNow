@@ -10,14 +10,17 @@ function LocationFilter() {
     useLocationFilter();
   console.log(selectedCity);
 
-  const submit = async (e) => {
-    e.preventDefault();
+  const submit = async () => {
+    console.log("API URL:", import.meta.env.VITE_API_URL); // Debugging output
     try {
-      await axios.post("https://happenings-now-server.vercel.app/", {
-        selectedCountry,
-      });
-    } catch (e) {
-      console.log(e);
+      const response = await axios.post(
+        import.meta.env.VITE_API_URL,
+        { city: selectedCity.name },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      console.log("Response from backend:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 

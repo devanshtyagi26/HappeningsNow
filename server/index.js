@@ -1,36 +1,38 @@
-require("dotenv").config(); // Load environment variables
-
 import express from "express";
-import cors from "cors"; // Import the cors package
+import cors from "cors";
 
 const app = express();
+const PORT = 3000;
 
-// ✅ CORS Middleware (Fix for 'No Access-Control-Allow-Origin' header)
-app.use(
-  cors({
-    origin: "https://happenings-now.vercel.app", // Allow your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow necessary methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow custom headers
-  })
-);
-
-// ✅ Handle OPTIONS Preflight Requests
-app.options("*", cors());
-
+// Middleware to parse JSON requests
 app.use(express.json());
+app.use(cors()); // Adjust CORS settings if needed
 
-// Sample route
 app.get("/", (req, res) => {
-  res.send("Server is running...");
+  res.send("Server is up and running!");
 });
-// SerpApi route
+
+let display = ""; // Global variable to store city
+
+app.post("/", (req, res) => {
+  console.log("Received POST request:", req.body);
+
+  if (req.body.city) {
+    display = req.body.city; // Store city for later use
+  }
+
+  res.json({ message: "City received", city: display });
+});
+
 app.get("/api/events", async (req, res) => {
   const apiKey = process.env.API_TOKEN;
-  const location = "Austin";
+  if (!display) {
+    return res.status(400).json({ error: "No city provided" });
+  }
 
   try {
     const response = await fetch(
-      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${location}&hl=en&gl=us&api_key=${apiKey}`
+      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${display}&hl=en&gl=us&api_key=${apiKey}`
     );
     const data = await response.json();
     console.log("data");
@@ -40,12 +42,6 @@ app.get("/api/events", async (req, res) => {
   }
 });
 
-// Fixed POST Route
-app.post("/", async (req, res) => {
-  const { msg } = req.body;
-  console.log(msg);
-  res.status(200).json({ message: "Received your message!" }); // Send response
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
