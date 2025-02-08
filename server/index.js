@@ -10,7 +10,13 @@ app.get("/", (req, res) => {
   res.send("Server Is Running...");
 });
 
-app.use(cors({ origin: process.env.API_URL }));
+app.use(
+  cors({
+    origin: process.env.API_URL,
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 app.use(express.json());
 
 // SerpApi route
