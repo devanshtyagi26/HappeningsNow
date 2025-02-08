@@ -5,16 +5,22 @@ import GetStates from "./GetStates";
 import { useLocationFilter } from "./UseLocationFilter";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 function LocationFilter() {
-  const [showCards, setShowCards] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // Remove 'showCards' when the page loads
+  useEffect(() => {
+    if (searchParams.get("isvalid") === "true") {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete("isvalid"); // Remove 'showCards'
+      setSearchParams(newParams, { replace: true }); // Replace the URL without adding history entry
+    }
+  }, []); // Runs only once when the component mounts
 
   const { selectedCountry, selectedState, selectedCity, updateParams } =
     useLocationFilter();
   // Log showCards when it updates
-  useEffect(() => {
-    console.log("ShowCards updated:", showCards);
-  }, [showCards]);
 
   const submit = async () => {
     const apiUrl = import.meta.env.VITE_API_URL; // Ensure it's correct
@@ -25,15 +31,17 @@ function LocationFilter() {
         `${apiUrl}/api/events?city=${selectedCity.name}`
       );
       console.log("Events Data:", response.data);
-      if (response.data && response.data.events) {
-        setShowCards(true);
+      if (response.data) {
+        // Preserve existing query parameters while adding showCards=true
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set("isvalid", "true");
+        setSearchParams(newParams);
       }
     } catch (error) {
       console.error("Error fetching events:", error.response?.data || error);
     }
   };
 
-  console.log("ShowCards", showCards);
   return (
     <>
       <div className="locationFilter">
@@ -54,7 +62,6 @@ function LocationFilter() {
           Submit
         </button>
       </div>
-      {showCards && <button>Working</button>}
     </>
   );
 }

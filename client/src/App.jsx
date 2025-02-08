@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Hero />
-      <EventsTest />
+      {/* {searchParams.get("isvalid") === "true" && <EventsTest />} */}
     </>
   );
 }
