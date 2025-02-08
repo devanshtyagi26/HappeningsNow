@@ -6,8 +6,5 @@
       "memory": 1024
     }
   },
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.js" },
-    { "src": "/api/events", "dest": "/index.js" }
-  ]
+  "routes": [{ "src": "/api/events", "dest": "/index.js" }]
 }
