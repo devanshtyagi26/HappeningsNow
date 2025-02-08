@@ -4,8 +4,12 @@ import RadioButtons from "./RadioButtons";
 import GetStates from "./GetStates";
 import { useLocationFilter } from "./UseLocationFilter";
 import axios from "axios";
+import EventsTest from "../API/EventsTest";
+import { useState } from "react";
 
+const [showCards, setShowCards] = useState(false);
 function LocationFilter() {
+  console.log("ShowCards", showCards);
   const { selectedCountry, selectedState, selectedCity, updateParams } =
     useLocationFilter();
   console.log(selectedCity);
@@ -19,11 +23,15 @@ function LocationFilter() {
         `${apiUrl}/api/events?city=${selectedCity.name}`
       );
       console.log("Events Data:", response.data);
+      if (response.data != null) {
+        setShowCards(true);
+      }
     } catch (error) {
       console.error("Error fetching events:", error.response?.data || error);
     }
   };
 
+  console.log("ShowCards", showCards);
   return (
     <>
       <div className="locationFilter">
