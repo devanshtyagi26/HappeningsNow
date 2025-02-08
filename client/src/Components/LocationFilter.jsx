@@ -15,14 +15,12 @@ function LocationFilter() {
     console.log("API URL:", apiUrl); // Debugging output
 
     try {
-      const response = await axios.post(
-        `${apiUrl}/api/events?city=${selectedCity.name}`, // Ensure a trailing slash if required
-        { city: selectedCity.name },
-        { headers: { "Content-Type": "application/json" } }
+      const response = await axios.get(
+        `${apiUrl}/api/events?city=${selectedCity.name}`
       );
-      console.log("Response from backend:", response.data);
+      console.log("Events Data:", response.data);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error fetching events:", error.response?.data || error);
     }
   };
 
