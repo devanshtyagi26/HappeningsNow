@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
 import Card from "../Components/Card";
+import { useEvents } from "../Components/EventsContext";
 
 const EventsTest = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { eventsData } = useEvents(); // Access the stored data
+  let data;
+  if (eventsData) {
+    data = JSON.stringify(eventsData, null, 2);
+  }
+  return (
+    <div>
+      <h2>Events Data:</h2>
+      {eventsData ? <pre> {data}</pre> : <p>No events data available</p>}
+    </div>
+  );
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(
-          import.meta.env.VITE_API_URL
-        );
+        const response = await fetch(import.meta.env.VITE_API_URL);
         if (!response.ok) {
           throw new Error("Failed to fetch events");
         }
