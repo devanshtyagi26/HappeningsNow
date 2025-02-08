@@ -10,7 +10,7 @@ const EventsTest = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(
-          "https://happenings-now-server.vercel.app/api/events"
+          process.env.REACT_APP_API_URL_
         );
         if (!response.ok) {
           throw new Error("Failed to fetch events");

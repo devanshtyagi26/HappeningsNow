@@ -1,22 +1,11 @@
 import { Country, State, City } from "country-state-city";
 import Select from "react-select";
 import { CitySvg, CountrySvg, StateSvg } from "../assets/stateSvgs";
-import { useSearchParams } from "react-router-dom"; // FIX: Correct import
+import { useLocationFilter } from "./UseLocationFilter";
 
 export default function GetStates() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  
-  // Fetch selected values from URL
-  const selectedCountry = Country.getAllCountries().find(
-    (c) => c.name === searchParams.get("country")
-  );
-  const selectedState = State.getStatesOfCountry(selectedCountry?.isoCode).find(
-    (s) => s.name === searchParams.get("state")
-  );
-  const selectedCity = City.getCitiesOfState(
-    selectedState?.countryCode,
-    selectedState?.isoCode
-  ).find((ci) => ci.name === searchParams.get("city"));
+  const { selectedCountry, selectedState, selectedCity, updateParams } =
+    useLocationFilter();
 
   const customStyles = {
     control: (provided) => ({
@@ -46,17 +35,6 @@ export default function GetStates() {
     indicatorSeparator: () => ({
       display: "none",
     }),
-  };
-
-  // Function to update URL parameters correctly
-  const updateParams = (key, value) => {
-    const newParams = new URLSearchParams(searchParams);
-    if (value) {
-      newParams.set(key, value);
-    } else {
-      newParams.delete(key);
-    }
-    setSearchParams(newParams, { replace: true });
   };
 
   return (
@@ -95,7 +73,10 @@ export default function GetStates() {
         <CitySvg />
         <Select
           options={
-            City.getCitiesOfState(selectedState?.countryCode, selectedState?.isoCode) || []
+            City.getCitiesOfState(
+              selectedState?.countryCode,
+              selectedState?.isoCode
+            ) || []
           }
           getOptionLabel={(option) => option.name}
           getOptionValue={(option) => option.name}

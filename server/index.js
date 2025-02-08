@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send("Server Is Running...");
 });
 
-app.use(cors({ origin: "https://happenings-now.vercel.app" }));
+app.use(cors({ origin: process.env.API_URL }));
 app.use(express.json());
 
 // SerpApi route
