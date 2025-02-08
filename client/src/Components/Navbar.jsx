@@ -1,6 +1,6 @@
 import React from "react";
 import "../Style/navbar.css";
-import { GithubLogo } from "../assets/githubLogo";
+import { GithubLogo } from "../assets/GithubLogo";
 function Navbar() {
   return (
     <>
