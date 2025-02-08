@@ -25,8 +25,8 @@ app.post("/", (req, res) => {
 });
 
 app.get("/api/events", async (req, res) => {
-  const { city } = req.query; // Get city from query parameter
   const apiKey = process.env.API_TOKEN;
+  const city = req.query.city; // Get city from query params
 
   if (!city) {
     return res.status(400).json({ error: "No city provided" });
