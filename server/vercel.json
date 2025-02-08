@@ -4,5 +4,10 @@
   "routes": [
     { "src": "/(.*)", "dest": "/" },
     { "src": "/api/events", "dest": "/index.js" }
-  ]
+  ],
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 50
+    }
+  }
 }

@@ -5,25 +5,24 @@ import cors from "cors"; // Import the cors package
 
 const app = express();
 
-// ✅ Use cors() properly
+// ✅ CORS Middleware (Fix for 'No Access-Control-Allow-Origin' header)
 app.use(
   cors({
-    origin: process.env.API_URL || "https://happenings-now.vercel.app", // Allow frontend URL
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-    allowedHeaders: "Content-Type, Authorization",
+    origin: "https://happenings-now.vercel.app", // Allow your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow necessary methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow custom headers
   })
 );
 
-app.use(express.json()); // Middleware for JSON body parsing
-
-// ✅ Handle OPTIONS preflight requests
+// ✅ Handle OPTIONS Preflight Requests
 app.options("*", cors());
 
-// Basic route for root
-app.get("/", (req, res) => {
-  res.send("Server Is Running...");
-});
+app.use(express.json());
 
+// Sample route
+app.get("/", (req, res) => {
+  res.send("Server is running...");
+});
 // SerpApi route
 app.get("/api/events", async (req, res) => {
   const apiKey = process.env.API_TOKEN;
@@ -41,9 +40,11 @@ app.get("/api/events", async (req, res) => {
   }
 });
 
+// Fixed POST Route
 app.post("/", async (req, res) => {
   const { msg } = req.body;
   console.log(msg);
+  res.status(200).json({ message: "Received your message!" }); // Send response
 });
 
 const PORT = process.env.PORT || 3000;
