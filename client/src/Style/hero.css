@@ -32,8 +32,13 @@
   line-height: normal;
 }
 .locationFilter {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title . . button button"
+    "choose choose choose choose choose choose "
+    ". . . . . submit";
   width: 1114px;
   height: 299px;
   flex-shrink: 0;
@@ -46,6 +51,7 @@
 }
 
 .locationFilter .text {
+  grid-area: title;
   display: flex;
   flex-direction: column;
 }
@@ -84,6 +90,7 @@
 }
 
 .locationFilter .select {
+  grid-area: choose;
   border: 1px solid #606060;
   background: #262626;
   backdrop-filter: blur(2px);
@@ -101,6 +108,54 @@
   line-height: normal;
 }
 
+.locationFilter .radio-inputs {
+  grid-area: button;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.299);
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  height: fit-content;
+  width: 13rem;
+  font-size: 14px;
+  font-family: poppins;
+}
+
+.locationFilter .radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.locationFilter .radio-inputs .radio input {
+  display: none;
+}
+
+.locationFilter .radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.588);
+  transition: all 0.15s ease-in-out;
+}
+
+.locationFilter .radio-inputs .radio input:checked + .name {
+  background-color: #e1e1e1;
+  color: rgba(0, 0, 0, 0.525);
+  font-weight: 600;
+}
+
+.locationFilter .submit {
+  grid-area: submit;
+}
 .secondPage {
   width: 100vw;
   height: calc(100vh - 80px);
