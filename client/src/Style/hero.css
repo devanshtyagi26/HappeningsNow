@@ -90,16 +90,26 @@
 }
 
 .locationFilter .select {
+  justify-self: center;
   grid-area: choose;
   border: 1px solid #606060;
   background: #262626;
   backdrop-filter: blur(2px);
-  width: 1050px;
-  height: 102px;
+  width: 90%;
+  height: 90%;
   flex-shrink: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "select . . "
+    "drop drop drop "
+    ". . ."
+    ". . .";
 }
 
 .locationFilter .select p {
+  grid-area: select;
   color: #fff;
   font-family: Poppins;
   font-size: 15px;
@@ -155,6 +165,23 @@
 
 .locationFilter .submit {
   grid-area: submit;
+}
+.locationFilter .getStates {
+  grid-area: drop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+}
+.locationFilter .getStates .choose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+.locationFilter .getStates .choose .svgs {
+  height: 32px;
+  width: 32px;
 }
 .secondPage {
   width: 100vw;

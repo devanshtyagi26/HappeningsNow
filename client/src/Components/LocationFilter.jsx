@@ -1,6 +1,7 @@
 import React from "react";
 import { Blob1, Blob2, Blob3 } from "../assets/Blobs";
 import RadioButtons from "./RadioButtons";
+import GetStates from "./GetStates";
 
 function LocationFilter() {
   return (
@@ -17,6 +18,7 @@ function LocationFilter() {
         <Blob2 />
         <div className="select">
           <p>SELECT</p>
+          <GetStates />
         </div>
         <button className="submit">Submit</button>
       </div>
