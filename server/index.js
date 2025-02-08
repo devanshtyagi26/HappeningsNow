@@ -34,7 +34,7 @@ app.get("/api/events", async (req, res) => {
 
   try {
     const response = await fetch(
-      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${display}&hl=en&gl=us&api_key=${apiKey}`
+      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${city}&hl=en&gl=us&api_key=${apiKey}`
     );
     const data = await response.json();
     console.log("data");
