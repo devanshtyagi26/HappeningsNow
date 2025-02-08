@@ -1,6 +1,6 @@
 import { Country, State, City } from "country-state-city";
 import Select from "react-select";
-import { CitySvg, CountrySvg, StateSvg } from "../assets/stateSvgs";
+import { CitySvg, CountrySvg, StateSvg } from "../assets/StateSvgs";
 import { useLocationFilter } from "./UseLocationFilter";
 
 export default function GetStates() {

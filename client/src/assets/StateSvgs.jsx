@@ -42,9 +42,9 @@ export const StateSvg = ({ width = 64, height = 64, color = "white" }) => {
       <defs>
         <style>
           {`
-              .fil0, .fil1 { fill: ${color}; fill-rule: nonzero; }
-              .fil1 { fill: #66bb6a; }
-              `}
+                .fil0, .fil1 { fill: ${color}; fill-rule: nonzero; }
+                .fil1 { fill: #66bb6a; }
+                `}
         </style>
       </defs>
       <g id="Layer_x0020_1">
