@@ -3,6 +3,7 @@ import { Blob1, Blob2, Blob3 } from "../assets/Blobs";
 import RadioButtons from "./RadioButtons";
 import GetStates from "./GetStates";
 import { useLocationFilter } from "./UseLocationFilter";
+import axios from "axios";
 
 function LocationFilter() {
   const { selectedCountry, selectedState, selectedCity, updateParams } =
