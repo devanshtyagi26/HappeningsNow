@@ -3,16 +3,18 @@ import { Blob1, Blob2, Blob3 } from "../assets/Blobs";
 import RadioButtons from "./RadioButtons";
 import GetStates from "./GetStates";
 import { useLocationFilter } from "./UseLocationFilter";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import EventsTest from "../API/EventsTest";
-import { useState } from "react";
 
-const [showCards, setShowCards] = useState(false);
 function LocationFilter() {
-  console.log("ShowCards", showCards);
+  const [showCards, setShowCards] = useState(false);
+
   const { selectedCountry, selectedState, selectedCity, updateParams } =
     useLocationFilter();
-  console.log(selectedCity);
+  // Log showCards when it updates
+  useEffect(() => {
+    console.log("ShowCards updated:", showCards);
+  }, [showCards]);
 
   const submit = async () => {
     const apiUrl = import.meta.env.VITE_API_URL; // Ensure it's correct
@@ -23,7 +25,7 @@ function LocationFilter() {
         `${apiUrl}/api/events?city=${selectedCity.name}`
       );
       console.log("Events Data:", response.data);
-      if (response.data != null) {
+      if (response.data && response.data.events) {
         setShowCards(true);
       }
     } catch (error) {
@@ -52,6 +54,7 @@ function LocationFilter() {
           Submit
         </button>
       </div>
+      {showCards && <button>Working</button>}
     </>
   );
 }
