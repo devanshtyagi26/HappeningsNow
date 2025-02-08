@@ -13,7 +13,7 @@ function LocationFilter() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(process.env.REACT_APP_API_URL, {
+      await axios.post("https://happenings-now-server.vercel.app/", {
         selectedCountry,
       });
     } catch (e) {
