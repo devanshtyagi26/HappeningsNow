@@ -11,10 +11,10 @@ function LocationFilter() {
   console.log(selectedCity);
 
   const submit = async () => {
-    console.log("API URL:", process.env.REACT_APP_API_URL); // Debugging output
+    console.log("API URL:", import.meta.env.REACT_APP_API_URL); // Debugging output
     try {
       const response = await axios.post(
-        process.env.REACT_APP_API_URL,
+        import.meta.env.REACT_APP_API_URL,
         { city: selectedCity.name },
         { headers: { "Content-Type": "application/json" } }
       );
