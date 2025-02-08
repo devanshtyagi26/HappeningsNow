@@ -11,10 +11,12 @@ function LocationFilter() {
   console.log(selectedCity);
 
   const submit = async () => {
-    console.log("API URL:", import.meta.env.VITE_API_URL); // Debugging output
+    const apiUrl = import.meta.env.VITE_API_URL; // Ensure it's correct
+    console.log("API URL:", apiUrl); // Debugging output
+
     try {
       const response = await axios.post(
-        import.meta.env.VITE_API_URL,
+        `${apiUrl}/`, // Ensure a trailing slash if required
         { city: selectedCity.name },
         { headers: { "Content-Type": "application/json" } }
       );
