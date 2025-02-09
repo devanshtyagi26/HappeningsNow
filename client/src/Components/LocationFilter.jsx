@@ -34,7 +34,7 @@ function LocationFilter() {
       );
       console.log("Events Data:", response.data);
       if (response.data) {
-        setEvents(response.data); // Store in context
+        setEvents(response.data.events_results); // Store in context
         // Preserve existing query parameters while adding showCards=true
         const newParams = new URLSearchParams(searchParams);
         newParams.set("isvalid", "true");
