@@ -1,17 +1,21 @@
 import { useEffect } from "react";
 import Card from "../Components/Card";
 import { useEvents } from "../Components/EventsContext";
+import { useLocationFilter } from "../Components/UseLocationFilter";
 
 const EventsTest = () => {
   const { events } = useEvents(); // Access the stored data
-
+  const { selectedCity, setType } = useLocationFilter();
   useEffect(() => {
     console.log("Updated Events Data in EventsTest:", events); // Debugging
   }, [events]);
-
+  const color = { color: "#31d7a9" };
   return (
-    <div>
-      <h1>UPCOMING EVENTS</h1>
+    <>
+      <h1>
+        UPCOMING <span style={color}> {setType.toUpperCase()} </span> IN{" "}
+        <span style={color}> {selectedCity.name.toUpperCase()}</span>
+      </h1>
       {events?.length > 0 ? (
         <ul className="cardContainer">
           {events.map((event, index) => (
@@ -32,7 +36,7 @@ const EventsTest = () => {
       ) : (
         <p>No events available.</p>
       )}
-    </div>
+    </>
   );
 };
 
