@@ -18,28 +18,60 @@ const Star = ({ clip, fill }) => {
   );
 };
 
+// export const StarRating = ({ rating }) => {
+//   const fullStars = Math.floor(rating);
+//   const portion = (rating - fullStars) * 100;
+//   const totalStars = 5;
+//   const remaining = totalStars - (fullStars + 1);
+//   console.log(remaining);
+
+//   return (
+//     <>
+//       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
+//         {[...Array(totalStars)].map((_, index) => (
+//           <Star clip="100%" fill="#5E5E5E" />
+//         ))}
+//       </div>
+//       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
+//         {[...Array(fullStars)].map((_, index) => (
+//           <Star clip="100%" fill="#ED8A19" />
+//         ))}
+//         {portion > 0 && <Star clip={portion + "%"} fill="#ED8A19" />}
+//         {[...Array(remaining)].map((_, index) => (
+//           <Star clip="100%" fill="#5E5E5E" />
+//         ))}
+//       </div>
+//     </>
+//   );
+// };
+
 export const StarRating = ({ rating }) => {
+  const totalStars = 5;
   const fullStars = Math.floor(rating);
   const portion = (rating - fullStars) * 100;
-  const totalStars = 5;
-  const remaining = totalStars - (fullStars + 1);
-  console.log(remaining);
+  const hasPartialStar = portion > 0;
+  const emptyStars = totalStars - fullStars - (hasPartialStar ? 1 : 0); // Adjust remaining stars
 
   return (
     <>
       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
         {[...Array(totalStars)].map((_, index) => (
-          <Star clip="100%" fill="#5E5E5E" />
+          <Star key={`bg-${index}`} clip="100%" fill="#5E5E5E" />
         ))}
       </div>
+
+      {/* Overlay Filled Stars */}
       <div style={{ position: "absolute", display: "flex", gap: "4px" }}>
         {[...Array(fullStars)].map((_, index) => (
-          <Star clip="100%" fill="#ED8A19" />
+          <Star key={`filled-${index}`} clip="100%" fill="#ED8A19" />
         ))}
-        {portion > 0 && <Star clip={portion + "%"} fill="#ED8A19" />}
-        {[...Array(remaining)].map((_, index) => (
-          <Star clip="100%" fill="#5E5E5E" />
-        ))}
+        {hasPartialStar && (
+          <Star key="partial" clip={`${portion}%`} fill="#ED8A19" />
+        )}
+        {emptyStars > 0 &&
+          [...Array(emptyStars)].map((_, index) => (
+            <Star clip="100%" fill="#5E5E5E" />
+          ))}
       </div>
     </>
   );
