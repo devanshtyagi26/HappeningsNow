@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import { EventsProvider } from "./Components/EventsContext";
 import "./Style/secondPage.css";
 import { useRef } from "react";
+import Scroll from "./Components/Scroll";
 
 function App() {
   const ref = useRef(null);
@@ -16,8 +17,11 @@ function App() {
   return (
     <>
       <EventsProvider>
-        <Hero scrollToRef={ref}/>
-        <div className="secondPage">{isShowCards && <EventsTest ref={ref}/>}</div>
+        <Hero scrollToRef={ref} />
+        <div className="secondPage">
+          <Scroll ref={ref} />
+          {isShowCards && <EventsTest />}
+        </div>
       </EventsProvider>
     </>
   );
