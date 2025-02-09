@@ -3,11 +3,8 @@ import Card from "../Components/Card";
 import { useEvents } from "../Components/EventsContext";
 
 const EventsTest = () => {
-  const { eventsData } = useEvents(); // Access the stored data
-  let events;
-  if (eventsData) {
-    events = JSON.stringify(eventsData, null, 2);
-  }
+  const { events } = useEvents(); // Access the stored data
+
   return (
     <div>
       <h1>Upcoming Events</h1>
