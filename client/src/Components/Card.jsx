@@ -30,7 +30,7 @@ function Card({
             <div className="title">
               <p className="event">{title}</p>
               <div className="rating">
-                {" "}
+                {console.log(rating)}
                 {/* <StarRating rating={rating} /> */}
               </div>
             </div>
