@@ -31,7 +31,7 @@ function Card({
               <p className="event">{title}</p>
               <div className="rating">
                 {" "}
-                <StarRating rating={rating} />
+                {/* <StarRating rating={rating} /> */}
               </div>
             </div>
             <div className="location">
