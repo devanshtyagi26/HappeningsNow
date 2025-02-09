@@ -54,73 +54,74 @@ This project is a **location-based event and movie filtering web app**, built us
 
 ```
 /HappeningsNow
-│   readme.md
-│   tree.txt
-│
-├── client/
-│   │   .env
-│   │   .gitignore
-│   │   eslint.config.js
-│   │   index.html
-│   │   package-lock.json
-│   │   package.json
-│   │   README.md
-│   │   vite.config.js
-│   │
-│   ├── public/
-│   │   ├── vite.svg
-│   │
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │
-│   │   ├── API/
-│   │   │   ├── Events.jsx
-│   │   │   ├── EventsTest.jsx
-│   │   │
-│   │   ├── assets/
-│   │   │   ├── background.png
-│   │   │   ├── Blobs.jsx
-│   │   │   ├── BlueStrip.jsx
-│   │   │   ├── CardImage.jsx
-│   │   │   ├── DateTime.jsx
-│   │   │   ├── GithubLogo.jsx
-│   │   │   ├── Location.jsx
-│   │   │   ├── mobileBackground.png
-│   │   │   ├── react.svg
-│   │   │   ├── Star.jsx
-│   │   │   ├── StateSvgs.jsx
-│   │   │
-│   │   ├── Components/
-│   │   │   ├── Card.jsx
-│   │   │   ├── EventsContext.jsx
-│   │   │   ├── GetStates.jsx
-│   │   │   ├── Hero.jsx
-│   │   │   ├── LocationFilter.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── RadioButtons.jsx
-│   │   │   ├── UseLocationFilter.jsx
-│   │   │
-│   │   ├── Style/
-│   │   │   ├── body.css
-│   │   │   ├── card.css
-│   │   │   ├── hero.css
-│   │   │   ├── media.css
-│   │   │   ├── navbar.css
-│   │   │   ├── scrollBar.css
-│   │   │   ├── secondPage.css
-│   │   │
-├── server/
-│   │   .env
-│   │   .gitignore
-│   │   index.js
-│   │   index.txt
-│   │   package-lock.json
-│   │   package.json
-│   │   vercel.json
-│   │
-│   ├── routes/
-│   │   ├── events.js
+|   readme.md
+|   tree.txt
+|
++---client (React + Vite Frontend)
+|   |   .env
+|   |   .gitignore
+|   |   eslint.config.js
+|   |   index.html
+|   |   package-lock.json
+|   |   package.json
+|   |   README.md
+|   |   vite.config.js
+|   |
+|   +---public
+|   |       vite.svg
+|   |
+|   \---src
+|       |   App.jsx
+|       |   main.jsx
+|       |
+|       +---API
+|       |       Events.jsx
+|       |       EventsTest.jsx
+|       |
+|       +---assets
+|       |       background.png
+|       |       Blobs.jsx
+|       |       BlueStrip.jsx
+|       |       CardImage.jsx
+|       |       DateTime.jsx
+|       |       GithubLogo.jsx
+|       |       Location.jsx
+|       |       mobileBackground.png
+|       |       react.svg
+|       |       Star.jsx
+|       |       StateSvgs.jsx
+|       |
+|       +---Components
+|       |       Card.jsx
+|       |       EventsContext.jsx
+|       |       GetStates.jsx
+|       |       Hero.jsx
+|       |       LocationFilter.jsx
+|       |       Navbar.jsx
+|       |       RadioButtons.jsx
+|       |       Scroll.jsx
+|       |       UseLocationFilter.jsx
+|       |
+|       \---Style
+|               body.css
+|               card.css
+|               hero.css
+|               media.css
+|               navbar.css
+|               scrollBar.css
+|               secondPage.css
+|
+\---server (Node.js + Express Backend)
+    |   .env
+    |   .gitignore
+    |   index.js
+    |   index.txt
+    |   package-lock.json
+    |   package.json
+    |   vercel.json
+    |
+    \---routes
+            events.js
 ```
 
 ---
