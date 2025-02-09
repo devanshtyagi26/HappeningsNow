@@ -6,6 +6,7 @@ import Card from "./Components/Card";
 import Hero from "./Components/Hero";
 import { useSearchParams } from "react-router-dom";
 import { EventsProvider } from "./Components/EventsContext";
+import "./Style/secondPage.css";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -14,7 +15,7 @@ function App() {
     <>
       <EventsProvider>
         <Hero />
-        {isShowCards && <EventsTest />}
+        <div className="secondPage">{isShowCards && <EventsTest />}</div>
       </EventsProvider>
     </>
   );

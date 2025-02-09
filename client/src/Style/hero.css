@@ -225,12 +225,3 @@
   height: 32px;
   width: 32px;
 }
-.secondPage {
-  width: 100vw;
-  height: calc(100vh - 80px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #050709;
-}

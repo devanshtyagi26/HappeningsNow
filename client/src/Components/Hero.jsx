@@ -18,7 +18,6 @@ function Hero() {
           <LocationFilter />
         </div>
      
-      <div className="secondPage"></div>
     </>
   );
 }

@@ -11,7 +11,7 @@ const EventsTest = () => {
 
   return (
     <div>
-      <h1>Upcoming Events</h1>
+      <h1>UPCOMING EVENTS</h1>
       {events?.length > 0 ? (
         <ul className="cardContainer">
           {events.map((event, index) => (
