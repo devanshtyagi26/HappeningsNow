@@ -5,6 +5,7 @@ export const useLocationFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Read values from URL
+  const setType = searchParams.get("type") || "";
   const countryName = searchParams.get("country") || "";
   const stateName = searchParams.get("state") || "";
   const cityName = searchParams.get("city") || "";
@@ -49,6 +50,7 @@ export const useLocationFilter = () => {
   };
 
   return {
+    setType,
     selectedCountry,
     selectedState,
     selectedCity,
