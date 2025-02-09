@@ -1,6 +1,7 @@
 .secondPage {
   width: 100vw;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
+  padding-top: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
