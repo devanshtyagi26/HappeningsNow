@@ -1,0 +1,77 @@
+@media only screen and (max-width: 600px) {
+  body {
+    background: url(/src/assets/mobileBackground.png) no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+  }
+  .navbar .heading {
+    font-size: 20px;
+  }
+  .navbar svg {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+  .hero {
+    width: 100vw;
+  }
+  .hero .title {
+    font-size: 52px;
+    line-height: 65px; /* 96.341% */
+  }
+  .hero .title .sub {
+    font-size: 17px;
+  }
+  .locationFilter {
+    grid-template-areas:
+      "title title  title title title button"
+      "choose  choose choose choose choose choose "
+      ". . .  . . submit";
+    width: 360px;
+    padding: 0.5rem;
+    gap: 2rem;
+    left: 4%;
+    bottom: -60%;
+  }
+  .locationFilter .blob1 {
+    bottom: 0;
+    left: 17%;
+    width: 2rem;
+  }
+
+  .locationFilter .blob2 {
+    top: 0;
+    right: 14%;
+    width: 2rem;
+  }
+  .locationFilter .blob3 {
+    top: 63%;
+    right: 41%;
+    width: 2rem;
+  }
+  .locationFilter .select {
+    width: 90%;
+    height: 90%;
+  }
+
+  .locationFilter .getStates {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.1rem 0 4rem 0;
+  }
+  .locationFilter .text p {
+    font-size: 12px;
+  }
+  .locationFilter .text .welcome {
+    font-size: 9px;
+    font-weight: 400;
+  }
+  .locationFilter .radio-inputs {
+    width: 8rem;
+  }
+  .locationFilter .radio-inputs .radio input:checked + .name {
+    font-size: 0.8rem;
+  }
+  .secondPage {
+    padding-top: 34rem;
+  }
+}

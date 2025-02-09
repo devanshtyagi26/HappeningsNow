@@ -19,7 +19,7 @@
   line-height: 79px; /* 96.341% */
 }
 
-.secondPage p {
+.secondPage #unavailable {
   color: #fff;
   text-align: center;
   font-family: Poppins;

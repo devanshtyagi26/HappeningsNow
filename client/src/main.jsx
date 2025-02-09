@@ -5,6 +5,7 @@ import "./Style/body.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./Style/scrollBar.css";
+import "./Style/media.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>

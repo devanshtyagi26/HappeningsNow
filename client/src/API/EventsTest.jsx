@@ -34,7 +34,7 @@ const EventsTest = () => {
           ))}
         </ul>
       ) : (
-        <p>No events available.</p>
+        <p id="unavailable">No events available.</p>
       )}
     </>
   );
