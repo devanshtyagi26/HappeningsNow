@@ -13,7 +13,7 @@ const EventsTest = () => {
   return (
     <>
       {setType === null || selectedCity === null ? (
-        <h1></h1>
+        <h1>CHOOSING THE LOCATION...</h1>
       ) : (
         <h1>
           UPCOMING <span style={color}> {setType.toUpperCase()} </span> IN{" "}
@@ -38,7 +38,7 @@ const EventsTest = () => {
           ))}
         </ul>
       ) : (
-        <p id="unavailable">No events available.</p>
+        <p id="unavailable">No events available... (Click Submit to refresh)</p>
       )}
     </>
   );
