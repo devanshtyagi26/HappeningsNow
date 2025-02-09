@@ -20,7 +20,7 @@ function LocationFilter() {
     }
   }, []); // Runs only once when the component mounts
 
-  const { selectedCity } = useLocationFilter();
+  const { selectedCity, setType } = useLocationFilter();
   // Log showCards when it updates
 
   const submit = async () => {
@@ -29,7 +29,7 @@ function LocationFilter() {
 
     try {
       const response = await axios.get(
-        `${apiUrl}/api/events?city=${selectedCity.name}`
+        `${apiUrl}/api/events?type=${setType}&city=${selectedCity.name}`
       );
       console.log("Events Data:", response.data);
       if (response.data) {

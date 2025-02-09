@@ -26,6 +26,7 @@ app.post("/", (req, res) => {
 
 app.get("/api/events", async (req, res) => {
   const apiKey = process.env.API_TOKEN;
+  const type = req.query.type; // Get city from query params
   const city = req.query.city; // Get city from query params
 
   if (!city) {
@@ -34,7 +35,7 @@ app.get("/api/events", async (req, res) => {
 
   try {
     const response = await fetch(
-      `https://serpapi.com/search.json?engine=google_events&q=Events+in+${city}&hl=en&gl=us&api_key=${apiKey}`
+      `https://serpapi.com/search.json?engine=google_events&q=${type}+in+${city}&hl=en&gl=us&api_key=${apiKey}`
     );
     const data = await response.json();
     console.log("data");
