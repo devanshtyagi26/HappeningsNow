@@ -2,22 +2,20 @@ import React from "react";
 import Navbar from "./Navbar";
 import "../Style/hero.css";
 import LocationFilter from "./LocationFilter";
-function Hero() {
+function Hero({ scrollToRef }) {
   return (
     <>
-        <Navbar />
+      <Navbar />
       <div className="hero">
-      
-          <div className="title">
-            <p className="main">
-              SEARCH FOR EVENTS <br /> ALL OVER THE{" "}
-              <span className="color">WORLD</span>
-            </p>
-            <p className="sub">Find events across the globe, effortlessly!</p>
-          </div>
-          <LocationFilter />
+        <div className="title">
+          <p className="main">
+            SEARCH FOR EVENTS <br /> ALL OVER THE{" "}
+            <span className="color">WORLD</span>
+          </p>
+          <p className="sub">Find events across the globe, effortlessly!</p>
         </div>
-     
+        <LocationFilter scrollToRef={scrollToRef} />
+      </div>
     </>
   );
 }

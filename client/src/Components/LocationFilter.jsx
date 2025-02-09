@@ -8,7 +8,8 @@ import axios from "axios";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useEvents } from "./EventsContext";
 
-function LocationFilter() {
+
+function LocationFilter({scrollToRef}) {
   const { setEvents } = useEvents(); // Use context
   const [searchParams, setSearchParams] = useSearchParams();
   // Remove 'showCards' when the page loads
@@ -38,10 +39,16 @@ function LocationFilter() {
         const newParams = new URLSearchParams(searchParams);
         newParams.set("isvalid", "true");
         setSearchParams(newParams);
+        handleClick();
       }
     } catch (error) {
       console.error("Error fetching events:", error.response?.data || error);
     }
+  };
+
+  // const ref = useRef(null);
+  const handleClick = () => {
+    scrollToRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

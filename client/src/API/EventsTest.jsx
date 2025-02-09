@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import Card from "../Components/Card";
 import { useEvents } from "../Components/EventsContext";
 import { useLocationFilter } from "../Components/UseLocationFilter";
-
-const EventsTest = () => {
+import { forwardRef } from "react";
+const EventsTest = forwardRef((props, ref) => {
   const { events } = useEvents(); // Access the stored data
   const { selectedCity, setType } = useLocationFilter();
   useEffect(() => {
@@ -12,7 +12,7 @@ const EventsTest = () => {
   const color = { color: "#31d7a9" };
   return (
     <>
-      <h1>
+      <h1 ref={ref}>
         UPCOMING <span style={color}> {setType.toUpperCase()} </span> IN{" "}
         <span style={color}> {selectedCity.name.toUpperCase()}</span>
       </h1>
@@ -38,6 +38,5 @@ const EventsTest = () => {
       )}
     </>
   );
-};
-
+});
 export default EventsTest;
