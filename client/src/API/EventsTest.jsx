@@ -25,7 +25,7 @@ const EventsTest = forwardRef((props, ref) => {
                 dateTime={event?.date?.when ?? "No Date"}
                 address={event?.address ?? "No Address"}
                 description={event?.description ?? "No Description"}
-                rating={event?.venue?.rating ?? "No Rating"}
+                rating={event?.venue?.rating ?? -1}
                 imgUrl={event?.thumbnail ?? "No Image"}
                 ticketLink={event?.link ?? "#"}
                 eventLocationLink={event?.event_location_map?.link ?? "#"}
