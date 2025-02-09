@@ -12,10 +12,14 @@ const EventsTest = () => {
   const color = { color: "#31d7a9" };
   return (
     <>
-      <h1>
-        UPCOMING <span style={color}> {setType.toUpperCase()} </span> IN{" "}
-        <span style={color}> {selectedCity.name.toUpperCase()}</span>
-      </h1>
+      {setType === null || selectedCity === null ? (
+        <h1></h1>
+      ) : (
+        <h1>
+          UPCOMING <span style={color}> {setType.toUpperCase()} </span> IN{" "}
+          <span style={color}> {selectedCity.name.toUpperCase()}</span>
+        </h1>
+      )}
       {events?.length > 0 ? (
         <ul className="cardContainer">
           {events.map((event, index) => (
