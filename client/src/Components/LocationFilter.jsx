@@ -9,7 +9,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { useEvents } from "./EventsContext";
 
 function LocationFilter() {
-  const { setEventsData } = useEvents(); // Use context
+  const { setEvents } = useEvents(); // Use context
   const [searchParams, setSearchParams] = useSearchParams();
   // Remove 'showCards' when the page loads
   useEffect(() => {
@@ -34,7 +34,7 @@ function LocationFilter() {
       );
       console.log("Events Data:", response.data);
       if (response.data) {
-        setEventsData(response.data); // Store in context
+        setEvents(response.data); // Store in context
         // Preserve existing query parameters while adding showCards=true
         const newParams = new URLSearchParams(searchParams);
         newParams.set("isvalid", "true");

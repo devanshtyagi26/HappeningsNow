@@ -3,13 +3,19 @@ import { createContext, useContext, useState } from "react";
 const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
-  const [eventsData, setEventsData] = useState(null);
+  const [events, setEvents] = useState([]); // State for storing events
 
   return (
-    <EventsContext.Provider value={{ eventsData, setEventsData }}>
+    <EventsContext.Provider value={{ events, setEvents }}>
       {children}
     </EventsContext.Provider>
   );
 };
 
-export const useEvents = () => useContext(EventsContext);
+export const useEvents = () => {
+  const context = useContext(EventsContext);
+  if (!context) {
+    throw new Error("useEvents must be used within an EventsProvider");
+  }
+  return context;
+};
