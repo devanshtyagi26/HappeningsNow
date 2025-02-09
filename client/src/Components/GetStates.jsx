@@ -12,7 +12,8 @@ export default function GetStates() {
       ...provided,
       background: "none",
       border: "none",
-      width: "100%",
+      minWidth: "10rem",
+      width: "fit-content",
       color: "white !important",
       fontFamily: "Poppins",
       boxShadow: "none",
@@ -20,13 +21,15 @@ export default function GetStates() {
     option: (provided, state) => ({
       ...provided,
       fontFamily: "Poppins",
-      width: "100%",
+      minWidth: "10rem",
+      width: "fit-content",
       color: state.isSelected ? "black" : "grey",
       backgroundColor: state.isSelected ? "lightgrey" : "white",
     }),
     menu: (provided) => ({
       ...provided,
-      width: "100%",
+      minWidth: "10rem",
+      width: "fit-content",
     }),
     singleValue: (provided) => ({
       ...provided,
