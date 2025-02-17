@@ -5,6 +5,7 @@ import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { StarRating } from "../assets/Star";
 import Event from "../utils/Otp";
+import { useState } from "react";
 
 function Card({
   title,
