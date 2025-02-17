@@ -1,0 +1,6 @@
+.event-card {
+  position: relative;
+  width: fit-content;
+  height: 7rem;
+  background-color: red;
+}

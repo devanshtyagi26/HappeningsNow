@@ -4,6 +4,7 @@ import { DateTime } from "../assets/DateTime";
 import { CardImage } from "../assets/CardImage";
 import { Location } from "../assets/Location";
 import { StarRating } from "../assets/Star";
+import Event from "../utils/Otp";
 
 function Card({
   title,
@@ -18,6 +19,10 @@ function Card({
   const cardDate = (data) => {
     let split = data.split(",");
     return split[1] + " | " + split[2];
+  };
+  const [Auth, setAuth] = useState(false);
+  const authenticate = () => {
+    setAuth(true);
   };
   return (
     <>
@@ -46,12 +51,10 @@ function Card({
             </div>
             <div className="description">{description}</div>
             <div className="buttons">
-              <button
-                className="button"
-                onClick={() => window.open(ticketLink, "_blank")}
-              >
+              <button className="button" onClick={authenticate}>
                 Ticket
               </button>
+              {Auth && <Event target={ticketLink} />}
 
               <button
                 className="button"
