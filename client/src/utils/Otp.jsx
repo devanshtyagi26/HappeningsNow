@@ -6,8 +6,10 @@ const Event = ({ target }) => {
   const [otp, setOtp] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [isRedirected, setIsRedirected] = useState(false);
   const locationSend = import.meta.env.VITE_API_URL + "/send-otp";
   const locationVerify = import.meta.env.VITE_API_URL + "/verify-otp";
+
   const sendOtp = async () => {
     try {
       const res = await fetch(locationSend, {
@@ -25,11 +27,6 @@ const Event = ({ target }) => {
       }
     } catch (error) {
       console.error("Email sending failed:", error); // Add detailed logging
-      res.status(500).json({
-        success: false,
-        message: "Failed to send OTP.",
-        error: error.message,
-      });
     }
   };
 
@@ -44,6 +41,10 @@ const Event = ({ target }) => {
       const data = await res.json();
       if (data.success) {
         setIsVerified(true);
+        setIsRedirected(true); // Update state to indicate user has been redirected
+        setTimeout(() => {
+          window.open(target, "_blank"); // Open the target link after verification
+        }, 100); // Slight delay before opening the page
       } else {
         alert("Invalid OTP.");
       }
@@ -55,39 +56,41 @@ const Event = ({ target }) => {
 
   return (
     <>
-      <div className="event-card">
-        {!isVerified ? (
-          <div className="input-fields">
-            <input
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              className="inputs"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {!isOtpSent ? (
-              <button className="btn" onClick={sendOtp}>
-                Send OTP
-              </button>
-            ) : (
-              <>
-                <input
-                  type="text"
-                  placeholder="Enter OTP"
-                  value={otp}
-                  className="inputs"
-                  onChange={(e) => setOtp(e.target.value)}
-                />
-                <button className="btn" onClick={verifyOtp}>
-                  Verify OTP
+      {!isRedirected && (
+        <div className="event-card">
+          {!isVerified ? (
+            <div className="input-fields">
+              <input
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                className="inputs"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {!isOtpSent ? (
+                <button className="btn" onClick={sendOtp}>
+                  Send OTP
                 </button>
-              </>
-            )}
-          </div>
-        ) : (
-          window.open(target, "_blank")
-        )}
-      </div>
+              ) : (
+                <>
+                  <input
+                    type="text"
+                    placeholder="Enter OTP"
+                    value={otp}
+                    className="inputs"
+                    onChange={(e) => setOtp(e.target.value)}
+                  />
+                  <button className="btn" onClick={verifyOtp}>
+                    Verify OTP
+                  </button>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="load">Verifying OTP, please wait...</div>
+          )}
+        </div>
+      )}
     </>
   );
 };
