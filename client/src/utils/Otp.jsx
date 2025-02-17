@@ -4,7 +4,6 @@ import "../Style/auth.css";
 const Event = ({ target }) => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
-  const [IsVisible, setIsVisible] = useState(true);
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const locationSend = import.meta.env.VITE_API_URL + "/send-otp";
@@ -45,7 +44,6 @@ const Event = ({ target }) => {
       const data = await res.json();
       if (data.success) {
         setIsVerified(true);
-        setIsVisible(false);
       } else {
         alert("Invalid OTP.");
       }
@@ -57,41 +55,39 @@ const Event = ({ target }) => {
 
   return (
     <>
-      {IsVisible && (
-        <div className="event-card">
-          {!isVerified ? (
-            <div className="input-fields">
-              <input
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                className="inputs"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {!isOtpSent ? (
-                <button className="btn" onClick={sendOtp}>
-                  Send OTP
+      <div className="event-card">
+        {!isVerified ? (
+          <div className="input-fields">
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              className="inputs"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {!isOtpSent ? (
+              <button className="btn" onClick={sendOtp}>
+                Send OTP
+              </button>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  placeholder="Enter OTP"
+                  value={otp}
+                  className="inputs"
+                  onChange={(e) => setOtp(e.target.value)}
+                />
+                <button className="btn" onClick={verifyOtp}>
+                  Verify OTP
                 </button>
-              ) : (
-                <>
-                  <input
-                    type="text"
-                    placeholder="Enter OTP"
-                    value={otp}
-                    className="inputs"
-                    onChange={(e) => setOtp(e.target.value)}
-                  />
-                  <button className="btn" onClick={verifyOtp}>
-                    Verify OTP
-                  </button>
-                </>
-              )}
-            </div>
-          ) : (
-            window.open(target, "_blank")
-          )}
-        </div>
-      )}
+              </>
+            )}
+          </div>
+        ) : (
+          window.open(target, "_blank")
+        )}
+      </div>
     </>
   );
 };
