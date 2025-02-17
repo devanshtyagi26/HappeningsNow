@@ -1,6 +1,36 @@
 .event-card {
-  position: relative;
-  width: fit-content;
-  height: 7rem;
-  background-color: red;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  border-radius: 12px;
+  padding: 1rem;
+  gap: 1rem;
+  position: absolute;
+  width: 20rem;
+  height: 9rem;
+  background-color: #d1d1d1;
+}
+.event-card .input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-card .input-fields .inputs {
+  font-size: 1rem;
+  outline: none;
+  font-family: "Poppins";
+  padding: 0 0.5rem;
+}
+
+.event-card .input-fields .btn {
+  padding: 0.3rem;
+  background: #0015ff;
+  color: white;
+  outline: none;
+}
+.event-card .input-fields .btn::before {
+  content: "" !important;
 }

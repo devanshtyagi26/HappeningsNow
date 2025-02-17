@@ -131,14 +131,14 @@
   background: none;
 }
 
-.frame .canvas .content .buttons button:hover {
+.frame .canvas .content .buttons .button:hover {
   color: #ffffff;
   transform: scale(1.05);
   outline: 2px solid #70bdca;
   box-shadow: 4px 5px 17px -4px #1b70ff;
 }
 
-.frame .canvas .content .buttons button::before {
+.frame .canvas .content .buttons .button::before {
   content: "";
   position: absolute;
   left: -50px;
@@ -151,6 +151,6 @@
   transition: width 1000ms;
 }
 
-.frame .canvas .content .buttons button:hover::before {
+.frame .canvas .content .buttons .button:hover::before {
   width: 250%;
 }

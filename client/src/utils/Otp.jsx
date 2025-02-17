@@ -56,24 +56,30 @@ const Event = ({ target }) => {
   return (
     <div className="event-card">
       {!isVerified ? (
-        <div>
+        <div className="input-fields">
           <input
             type="email"
             placeholder="Enter email"
             value={email}
+            className="inputs"
             onChange={(e) => setEmail(e.target.value)}
           />
           {!isOtpSent ? (
-            <button onClick={sendOtp}>Send OTP</button>
+            <button className="btn" onClick={sendOtp}>
+              Send OTP
+            </button>
           ) : (
             <>
               <input
                 type="text"
                 placeholder="Enter OTP"
                 value={otp}
+                className="inputs"
                 onChange={(e) => setOtp(e.target.value)}
               />
-              <button onClick={verifyOtp}>Verify OTP</button>
+              <button className="btn" onClick={verifyOtp}>
+                Verify OTP
+              </button>
             </>
           )}
         </div>

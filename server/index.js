@@ -48,7 +48,7 @@ app.get("/api/events", async (req, res) => {
   }
 });
 
-let otpStore = {}; // Store OTPs temporarily
+let otpStore = {};
 
 // Nodemailer setup
 const transporter = nodemailer.createTransport({
@@ -64,9 +64,9 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify((error, success) => {
   if (error) {
-    console.error("❌ Nodemailer configuration error:", error);
+    console.error(" Nodemailer configuration error:", error);
   } else {
-    console.log("✅ Server is ready to send emails!");
+    console.log(" Server is ready to send emails!");
   }
 });
 
@@ -80,7 +80,7 @@ app.post("/send-otp", async (req, res) => {
       .json({ success: false, message: "Email is required." });
   }
 
-  const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
+  const otp = Math.floor(100000 + Math.random() * 900000);
   otpStore[email] = otp;
 
   try {
