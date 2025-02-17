@@ -55,7 +55,7 @@ function Card({
               <button className="button" onClick={authenticate}>
                 Ticket
               </button>
-              {Auth && ((<Event target={ticketLink} />), setAuth(false))}
+              {Auth && <Event target={ticketLink} />}
 
               <button
                 className="button"
