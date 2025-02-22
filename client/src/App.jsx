@@ -1,8 +1,9 @@
-import Events from "./API/Events";
+// Main App component managing event display and navigation
+// - Uses React Router's search params to determine if event cards should be shown
+// - Implements context provider for event data management
+// - Uses a ref to enable smooth scrolling
+
 import EventsTest from "./API/EventsTest";
-import { CardImage } from "./assets/CardImage";
-import { StarRating } from "./assets/Star";
-import Card from "./Components/Card";
 import Hero from "./Components/Hero";
 import { useSearchParams } from "react-router-dom";
 import { EventsProvider } from "./Components/EventsContext";
@@ -11,16 +12,22 @@ import { useRef } from "react";
 import Scroll from "./Components/Scroll";
 
 function App() {
-  const ref = useRef(null);
-  const [searchParams] = useSearchParams();
-  const isShowCards = searchParams.get("isvalid") === "true"; // Check if true
+  const ref = useRef(null); // Create a reference for scrolling
+  const [searchParams] = useSearchParams(); // Get URL search parameters
+  const isShowCards = searchParams.get("isvalid") === "true"; // Check if 'isvalid' param is true
+
   return (
     <>
       <EventsProvider>
-        <Hero scrollToRef={ref} />
+        {" "}
+        {/* Provide event context to child components */}
+        <Hero scrollToRef={ref} />{" "}
+        {/* Hero component with scroll functionality */}
         <div className="secondPage">
-          <Scroll ref={ref} />
-          {isShowCards && <EventsTest />}
+          <Scroll ref={ref} />{" "}
+          {/* Scroll component to handle smooth scrolling */}
+          {isShowCards && <EventsTest />}{" "}
+          {/* Show event cards only if 'isvalid' is true */}
         </div>
       </EventsProvider>
     </>
