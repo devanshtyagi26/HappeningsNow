@@ -1,12 +1,18 @@
+//? GetStates Component
+// This component provides a dropdown selection for country, state, and city using the `country-state-city` package.
+// It updates the selected location using the `useLocationFilter` context.
+
 import { Country, State, City } from "country-state-city";
 import Select from "react-select";
 import { CitySvg, CountrySvg, StateSvg } from "../assets/StateSvgs";
 import { useLocationFilter } from "./UseLocationFilter";
 
 export default function GetStates() {
+  // Extract selected location values and update function from context
   const { selectedCountry, selectedState, selectedCity, updateParams } =
     useLocationFilter();
 
+  // Custom styles for the dropdowns
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -42,36 +48,36 @@ export default function GetStates() {
 
   return (
     <div className="getStates">
-      {/* Country Selection */}
+      {/* Country Selection Dropdown */}
       <div className="choose">
         <CountrySvg />
         <Select
-          options={Country.getAllCountries()}
-          getOptionLabel={(option) => option.name}
-          getOptionValue={(option) => option.name}
-          value={selectedCountry || null} // FIX: Handle null case
-          onChange={(item) => updateParams("country", item?.name)}
+          options={Country.getAllCountries()} // Fetch all countries
+          getOptionLabel={(option) => option.name} // Display country name
+          getOptionValue={(option) => option.name} // Use country name as value
+          value={selectedCountry || null} // Handle null case
+          onChange={(item) => updateParams("country", item?.name)} // Update selected country
           placeholder="Select Country"
           styles={customStyles}
         />
       </div>
 
-      {/* State Selection */}
+      {/* State Selection Dropdown */}
       <div className="choose">
         <StateSvg />
         <Select
-          options={State.getStatesOfCountry(selectedCountry?.isoCode) || []}
-          getOptionLabel={(option) => option.name}
-          getOptionValue={(option) => option.name}
-          value={selectedState || null} // FIX: Handle null case
-          onChange={(item) => updateParams("state", item?.name)}
+          options={State.getStatesOfCountry(selectedCountry?.isoCode) || []} // Fetch states of selected country
+          getOptionLabel={(option) => option.name} // Display state name
+          getOptionValue={(option) => option.name} // Use state name as value
+          value={selectedState || null} // Handle null case
+          onChange={(item) => updateParams("state", item?.name)} // Update selected state
           placeholder="Select State"
           styles={customStyles}
-          isDisabled={!selectedCountry} // Disable if no country selected
+          isDisabled={!selectedCountry} // Disable dropdown if no country is selected
         />
       </div>
 
-      {/* City Selection */}
+      {/* City Selection Dropdown */}
       <div className="choose">
         <CitySvg />
         <Select
@@ -80,14 +86,14 @@ export default function GetStates() {
               selectedState?.countryCode,
               selectedState?.isoCode
             ) || []
-          }
-          getOptionLabel={(option) => option.name}
-          getOptionValue={(option) => option.name}
-          value={selectedCity || null} // FIX: Handle null case
-          onChange={(item) => updateParams("city", item?.name)}
+          } // Fetch cities of selected state
+          getOptionLabel={(option) => option.name} // Display city name
+          getOptionValue={(option) => option.name} // Use city name as value
+          value={selectedCity || null} // Handle null case
+          onChange={(item) => updateParams("city", item?.name)} // Update selected city
           placeholder="Select City"
           styles={customStyles}
-          isDisabled={!selectedState} // Disable if no state selected
+          isDisabled={!selectedState} // Disable dropdown if no state is selected
         />
       </div>
     </div>
