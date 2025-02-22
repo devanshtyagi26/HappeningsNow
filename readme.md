@@ -57,9 +57,7 @@ This project is a **location-based event and movie filtering web app**, built us
 |   readme.md
 |   tree.txt
 |
-+---client (React + Vite Frontend)
-|   |   .env
-|   |   .gitignore
++---client
 |   |   eslint.config.js
 |   |   index.html
 |   |   package-lock.json
@@ -68,14 +66,19 @@ This project is a **location-based event and movie filtering web app**, built us
 |   |   vite.config.js
 |   |
 |   +---public
-|   |       vite.svg
+|   |       android-chrome-192x192.png
+|   |       android-chrome-512x512.png
+|   |       apple-touch-icon.png
+|   |       favicon-16x16.png
+|   |       favicon-32x32.png
+|   |       favicon.ico
+|   |       site.webmanifest
 |   |
 |   \---src
 |       |   App.jsx
 |       |   main.jsx
 |       |
 |       +---API
-|       |       Events.jsx
 |       |       EventsTest.jsx
 |       |
 |       +---assets
@@ -102,26 +105,61 @@ This project is a **location-based event and movie filtering web app**, built us
 |       |       Scroll.jsx
 |       |       UseLocationFilter.jsx
 |       |
-|       \---Style
-|               body.css
-|               card.css
-|               hero.css
-|               media.css
-|               navbar.css
-|               scrollBar.css
-|               secondPage.css
+|       +---Style
+|       |       auth.css
+|       |       body.css
+|       |       card.css
+|       |       hero.css
+|       |       media.css
+|       |       navbar.css
+|       |       scrollBar.css
+|       |       secondPage.css
+|       |
+|       \---utils
+|               Otp.jsx
 |
-\---server (Node.js + Express Backend)
-    |   .env
-    |   .gitignore
-    |   index.js
-    |   index.txt
-    |   package-lock.json
-    |   package.json
-    |   vercel.json
-    |
-    \---routes
-            events.js
+\---server
+        index.js
+        package-lock.json
+        package.json
+```
+
+## 📁 Key Directories & Files
+
+- **`client/`** → Frontend code with React.
+- **`server/`** → Backend code with Node.js.
+- **`Components/`** → Reusable UI components.
+- **`Style/`** → CSS styles for the application.
+- **`API/`** → API calls and event-handling logic.
+- **`utils/`** → Helper functions and utilities.
+
+---
+
+## 🚀 Clone This Project
+
+To clone and set up this project locally, follow these steps:
+
+```sh
+git clone https://github.com/devanshtyagi26/HappeningsNow.git
+cd HappeningsNow
+```
+
+## 🛠 Setup Instructions
+
+### Client Setup
+
+```sh
+cd client
+npm install
+npm run dev
+```
+
+### Server Setup
+
+```sh
+cd server
+npm install
+npm start
 ```
 
 ---
@@ -179,4 +217,4 @@ This project is a **location-based event and movie filtering web app**, built us
 💻 **GitHub:** [devanshtyagi26](https://github.com/devanshtyagi26)  
 📧 **Email:** tyagidevansh3@gmail.com
 
-🚀 **Built with ❤️ using React, Node.js, and CSS!**
+🚀 **Built with ❤️ using React.js, Node.js, and CSS!**
