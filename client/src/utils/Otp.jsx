@@ -1,4 +1,4 @@
-// Event Component for OTP-based authentication and redirection
+//? Event Component for OTP-based authentication and redirection
 // - Users enter an email to receive an OTP
 // - OTP verification grants access to a specified target link
 // - Uses state to manage OTP sending, verification, and redirection
