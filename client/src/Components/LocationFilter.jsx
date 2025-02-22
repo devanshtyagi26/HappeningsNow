@@ -32,7 +32,6 @@ function LocationFilter({ scrollToRef }) {
   // Function to fetch events based on selected filters
   const submit = async () => {
     const apiUrl = import.meta.env.VITE_API_URL; // Get API URL from environment variables
-    console.log("API URL:", apiUrl); // Debugging: Log API URL
 
     try {
       const response = await axios.get(
