@@ -1,3 +1,5 @@
+/* Scrollbar CSS */
+
 body::-webkit-scrollbar {
   width: 0.5em;
 }
